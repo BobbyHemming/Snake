@@ -10,6 +10,7 @@ pygame.font.init()
 timer = 0
 # This is a comment checking whether source tree is working
 
+# This is another test in master branch
 
 def menu_screen(win):
 
