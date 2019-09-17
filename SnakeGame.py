@@ -12,6 +12,9 @@ timer = 0
 
 # This is another test in master branch
 
+# Why is my master branch on the LHS, is it because it needs more edits?
+# Whats going to happen if I merge now, will test become master of master become test?
+
 def menu_screen(win):
 
     running = True
