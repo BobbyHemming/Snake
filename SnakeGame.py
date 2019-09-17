@@ -9,19 +9,18 @@ pygame.font.init()
 
 timer = 0
 # This is a comment checking whether source tree is working
-<<<<<<< .merge_file_6v0u3g
-
 # This is another test in master branch
 
 # Why is my master branch on the LHS, is it because it needs more edits?
 # Whats going to happen if I merge now, will test become master of master become test?
-=======
+
 # Adding another step into the Test branch
 # .
 # .
 # .
 # This is a test if this is in "Test" branch of master
->>>>>>> .merge_file_ubdIOc
+
+# This is the end of the testing, commit two more changes to this work, adding this line, the delete all.
 
 def menu_screen(win):
 
