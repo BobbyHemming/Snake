@@ -20,7 +20,9 @@ def menu_screen(win):
         win.fill((0, 0, 0))
 
         startgame = font.render("Start Game", 1, (200, 200, 200))
+        highscore = font.render("High Score", 1, (200, 200, 200))
         win.blit(startgame, (width / 2 - startgame.get_width() / 2, 80))
+        win.blit(highscore, (width / 2 - highscore.get_width() / 2, 120))
 
 
         for event in pygame.event.get():
@@ -30,19 +32,23 @@ def menu_screen(win):
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 try:
-                    win.fill((0, 0, 0))
-                    pygame.time.wait(3000)
-                    pygame.display.update()
-                    main()
+                    pygame.mouse.get_pressed()
+                    mousepos = pygame.mouse.get_pos()
+                    if (width / 2 - startgame.get_width() / 2) <= mousepos[0] <= (width / 2 + startgame.get_width() / 2) and 60 <= mousepos[1] <= 100:
+                        startgamelight = font.render("Start Game", 1, (255, 255, 255))
+                        win.blit(startgamelight, (width / 2 - startgame.get_width() / 2, 80))
+                        win.fill((0, 0, 0))
+                        pygame.time.wait(3000)
+                        pygame.display.update()
+                        main()
+                    if (width / 2 - startgame.get_width() / 2) <= mousepos[0] <= (width / 2 + highscore.get_width() / 2) and 100 <= mousepos[1] <= 140:
+                        win.blit(startgamelight, (width / 2 - startgame.get_width() / 2, 80))
+                        win.fill((0, 0, 0))
+                        pygame.time.wait(3000)
+                        pygame.display.update()
                     break
                 except:
                     print("Error: Game won't start")
-
-            #if event.type == pygame.MOUSEMOTION:
-            mousepos = pygame.mouse.get_pos()
-            if (width / 2 - startgame.get_width() / 2) <= mousepos[0] <= (width / 2 + startgame.get_width() / 2) and 60 <= mousepos[1] <= 100:
-                startgamelight = font.render("Start Game", 1, (255, 255, 255))
-                win.blit(startgamelight, (width / 2 - startgame.get_width() / 2, 80))
 
         pygame.display.update()
 
