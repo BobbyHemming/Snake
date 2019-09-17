@@ -6,6 +6,9 @@ snakesize = 10
 width = 310
 edge = 10
 
+# This is test no. 2 in source tree, a new edit (in snake.py) to keep it clean, add this initial comment straight to master
+# branch, but then start a new development branch and merge back into master when ready!
+
 
 class Snake:
 
