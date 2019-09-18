@@ -6,7 +6,7 @@ timer = 0
 startButton = Button(110, 50, 100, 30, "dark", "Start Game")
 highscoreButton = Button(110, 100, 100, 30, "dark", "High Score")
 
-# The comment tests in "Master" and "Test" branch are now complete:
+# TODO: Build a scoring function and initialise it in the menu screen if the USER clicks "High Score" button.
 
 def redrawMenuScreen(win):
     win.fill((0, 0, 0))
