@@ -24,7 +24,7 @@ class Arena:
     def mainarena(self, win, direction):
 
         global foodlist
-        randpos = numpy.random.randint(low=1, high=47, size=2) * 10
+        randpos = numpy.random.randint(low=1, high=29, size=2) * 10
         if numpy.random.randint(low=0, high=100) < 5:
             newfood = Food(edge + randpos[0], edge + randpos[1])
             newfood.draw(win)
@@ -46,24 +46,5 @@ class Arena:
                     pygame.quit()
                     pass
                     # pygame.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

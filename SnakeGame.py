@@ -1,19 +1,18 @@
 import pygame
-import numpy as np
-import time
-from Snake import Snake
 from Arena import Arena
-
-pygame.font.init()
-
+from Button import Button
 
 timer = 0
-# This is a comment checking whether source tree is working
-# Adding another step into the Test branch
-# .
-# .
-# .
-# This is a test if this is in "Test" branch of master
+startButton = Button(110, 50, 100, 30, "dark", "Start Game")
+highscoreButton = Button(110, 100, 100, 30, "dark", "High Score")
+
+# The comment tests in "Master" and "Test" branch are now complete:
+
+def redrawMenuScreen(win):
+    win.fill((0, 0, 0))
+    startButton.draw(win)
+    highscoreButton.draw(win)
+
 
 def menu_screen(win):
 
@@ -21,33 +20,35 @@ def menu_screen(win):
 
     while running:
 
-        font = pygame.font.SysFont("comicsans", 30)
-        win.fill((0, 0, 0))
-
-        startgame = font.render("Start Game", 1, (200, 200, 200))
-        win.blit(startgame, (width / 2 - startgame.get_width() / 2, 80))
-
+        redrawMenuScreen(win)
+        pygame.display.update()
 
         for event in pygame.event.get():
+            mousePos = pygame.mouse.get_pos()
+
             if event.type == pygame.QUIT:
                 pygame.quit()
-                run = False
+                running = False
+
+            if event.type == pygame.MOUSEMOTION:
+
+                if startButton.isOver(mousePos):
+                    startButton.colour = "light"
+                else:
+                    startButton.colour = "dark"
+
+                if highscoreButton.isOver(mousePos):
+                    highscoreButton.colour = "light"
+                else:
+                    highscoreButton.colour = "dark"
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 try:
-                    win.fill((0, 0, 0))
-                    pygame.time.wait(3000)
-                    pygame.display.update()
-                    main()
-                    break
+                    if startButton.isOver(mousePos):
+                        win.fill((0, 0, 0))
+                        main()
                 except:
                     print("Error: Game won't start")
-
-            #if event.type == pygame.MOUSEMOTION:
-            mousepos = pygame.mouse.get_pos()
-            if (width / 2 - startgame.get_width() / 2) <= mousepos[0] <= (width / 2 + startgame.get_width() / 2) and 60 <= mousepos[1] <= 100:
-                startgamelight = font.render("Start Game", 1, (255, 255, 255))
-                win.blit(startgamelight, (width / 2 - startgame.get_width() / 2, 80))
 
         pygame.display.update()
 
@@ -57,10 +58,6 @@ def redrawwindow(win, direction):
 
     pygame.draw.rect(win, (0, 0, 255), (0, 0, width, height), 20)
     newArena.mainarena(win, direction)
-
-    # pygame.draw.rect(win, (1, 1, 240), (460, 20, 20, 10), 0)
-    # textsurface = myfont.render('{}'.format(int(timer/1000)), False, (0, 240, 0))
-    # win.blit(textsurface, (460, 20))
 
     pygame.display.update()
 
