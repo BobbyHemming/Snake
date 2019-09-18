@@ -6,7 +6,6 @@ snakesize = 10
 width = 310
 edge = 10
 
-# End of Test 2
 
 class Snake:
 
