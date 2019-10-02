@@ -14,7 +14,7 @@ def redrawMenuScreen(win):
     highscoreButton.draw(win)
 
 
-def menu_screen(win):
+def menu_screen():
 
     running = True
 
@@ -51,6 +51,10 @@ def menu_screen(win):
                     print("Error: Game won't start")
 
         pygame.display.update()
+
+
+def end_game():
+    pass
 
 
 
@@ -108,6 +112,6 @@ newArena = Arena(30, 30)
 win = pygame.display.set_mode((width, height))
 pygame.display.flip()
 
-menu_screen(win)
+menu_screen()
 
 
