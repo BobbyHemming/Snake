@@ -110,7 +110,7 @@ width, height = 320, 320
 newArena = Arena(30, 30)
 
 win = pygame.display.set_mode((width, height))
-pygame.display.flip()
+# pygame.display.flip()
 
 menu_screen()
 
