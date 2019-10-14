@@ -8,9 +8,8 @@ highscoreButton = Button(110, 100, 100, 30, "dark", "High Score")
 gameoverButton = Button(110, 50, 100, 30, "light", "Game Over!")
 menuscreenButton = Button(110, 110, 100, 30, "dark", "Main Menu")
 
-from Snake import snake
 
-
+# TODO: Update highscore read and write function
 # TODO: Build a scoring function and initialise it in the menu screen if the USER clicks "High Score" button.
 
 def redrawMenuScreen(win):
