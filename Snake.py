@@ -70,8 +70,3 @@ class Snake:
         pygame.draw.rect(win, (0, 0, 0), (self.lastPos[0], self.lastPos[1], snakesize, snakesize), 0)
 
 
-
-
-
-
-

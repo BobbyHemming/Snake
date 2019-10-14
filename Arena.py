@@ -3,8 +3,6 @@ from Snake import Snake, edge
 from Food import Food
 import numpy
 
-initialBody = [(100, 100), (100, 90), (100, 80)]
-SnakeOne = Snake(100, 110, 4, initialBody, (100, 70))
 foodlist = []
 timer = 0
 
@@ -16,12 +14,12 @@ class Arena:
         self.yNodes = yNodes
         self.isGameStarted = False
 
-    def movesnake(self, direction):
+    def movesnake(self, direction, snake):
 
-        SnakeOne.move(direction)
+        snake.move(direction)
 
 
-    def mainarena(self, win, direction):
+    def mainarena(self, win, direction, snake):
 
         global foodlist
         randpos = numpy.random.randint(low=1, high=29, size=2) * 10
@@ -33,18 +31,21 @@ class Arena:
 
         self.isGameStarted = True
 
-        SnakeOne.draw(win, direction)
+        snake.draw(win, direction)
 
         for food, val in enumerate(foodlist):
-            if (SnakeOne.xPos, SnakeOne.yPos) == (foodlist[food].xPos, foodlist[food].yPos):
+            if (snake.xPos, snake.yPos) == (foodlist[food].xPos, foodlist[food].yPos):
                 foodlist[food].Eaten = True
-                SnakeOne.HasEaten = True
+                snake.HasEaten = True
                 del foodlist[food]
 
-        for a in range(len(SnakeOne.posHistory)):
-                if (SnakeOne.xPos, SnakeOne.yPos) == SnakeOne.posHistory[a]:
-                    pygame.quit()
-                    pass
-                    # pygame.quit()
 
+    def eatenself(self, snake):
 
+        print(snake.posHistory, (snake.xPos, snake.yPos))
+        for a in range(len(snake.posHistory)):
+                if (snake.xPos, snake.yPos) == snake.posHistory[a]:
+                    print("End")
+                    return False
+
+        return True
