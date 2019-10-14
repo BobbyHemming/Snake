@@ -2,15 +2,14 @@ import pygame
 from Arena import Arena
 from Button import Button
 from Snake import Snake
+from Highscore import sethighscore
 timer = 0
 startButton = Button(110, 50, 100, 30, "dark", "Start Game")
 highscoreButton = Button(110, 100, 100, 30, "dark", "High Score")
 gameoverButton = Button(110, 50, 100, 30, "light", "Game Over!")
 menuscreenButton = Button(110, 110, 100, 30, "dark", "Main Menu")
 
-from Snake import snake
-
-
+# TODO: *** DONE *** Game Over Sequence, but could use some tidy up at the end screen.
 # TODO: Build a scoring function and initialise it in the menu screen if the USER clicks "High Score" button.
 
 def redrawMenuScreen(win):
@@ -48,14 +47,14 @@ def menu_screen():
                     highscoreButton.colour = "dark"
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # try:
+                try:
                     if startButton.isOver(mousePos):
                         win.fill((0, 0, 0))
                         initialBody = [(100, 100), (100, 90), (100, 80)]
                         SnakeOne = Snake(100, 110, 4, initialBody, (100, 70))
                         main(SnakeOne)
-                # except:
-                #     print("Error: Game won't start")
+                except:
+                    print("Error: Game won't start")
 
         pygame.display.update()
 
