@@ -42,10 +42,16 @@ class Arena:
 
     def eatenself(self, snake):
 
-        print(snake.posHistory, (snake.xPos, snake.yPos))
         for a in range(len(snake.posHistory)):
                 if (snake.xPos, snake.yPos) == snake.posHistory[a]:
                     print("End")
                     return False
 
         return True
+
+
+    def score(self, snake):
+
+        score = snake.length*10
+
+        return score
