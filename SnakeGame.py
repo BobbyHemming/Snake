@@ -12,11 +12,10 @@ gameoverButton = Button(110, 50, 100, 30, "light", "Game Over!")
 menuscreenButton = Button(110, 110, 100, 30, "dark", "Main Menu")
 menuscreenButton2 = Button(110, 250, 100, 20, "dark", "Main Menu")
 
-<<<<<<< HEAD
 
 # TODO: Update highscore read and write function
 # TODO: Build a scoring function and initialise it in the menu screen if the USER clicks "High Score" button.
-=======
+
 # TODO: *** DONE *** Game Over Sequence, but could use some tidy up at the end screen.
 # TODO: Build a scoring function and initialise it in the menu screen if the USER clicks "High Score" button.
 
@@ -58,7 +57,6 @@ def highscorescreen():
                 if menuscreenButton2.isOver(mousePos):
                     menu_screen()
 
->>>>>>> Dev-highscore
 
 def redrawMenuScreen(win):
     win.fill((0, 0, 0))
