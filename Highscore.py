@@ -3,13 +3,14 @@ import numpy as np
 
 def sethighscore(score):
 
-    list = np.loadtxt("highscores.txt")
+    list = np.loadtxt("highscores.txt", delimiter=",")
 
-    for a in len(list):
+    for a in range(3):
         if score > list[a]:
-            list.append(score)
-            list.sort(reverse=True)
-            del list[-1]
+            list[a] = int(score)
+            list.sort()
+            print(list)
+            list[2:0]
             np.savetxt("highscores.txt", list)
             break
 
